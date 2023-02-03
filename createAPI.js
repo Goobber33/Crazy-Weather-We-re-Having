@@ -2,7 +2,7 @@
 // API Key from openweather
 // Setting the APIkey variable to my api key
 
-var APIkey = '7f173635f9674bf1e43758ba1453b8c0';
+var APIkey = 'e7d306eb3b5976488c9d443fcb467e4c';
 var alert = 'alerts,minutely';
 
 // The search bar where the user enters in the city, and 
@@ -26,10 +26,26 @@ var searchBar = function (event) {
 
         // Passew the city into a future fetch function
 
-        fetchAPI(selectCity)
+        fetchFunction(selectCity)
 
         //Calls function after every search to save recent search
 
         saveSearch();
     }
 };
+
+// This is a fetch function that is based off the city name
+
+var fetchFunction = function (cityname) {
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${APIkey}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(function (response) {
+            var latitude = response.coord.lat;
+            var longitude = response.coord.lon;
+            apiCall(latitude, longitude, cityname)
+        })
+        .catch(err => alert("404 Not Found"))
+};  
+
