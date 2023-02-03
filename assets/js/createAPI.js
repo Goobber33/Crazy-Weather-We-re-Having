@@ -16,7 +16,7 @@ var searchBar = function (event) {
         alert('Search Field is Blank!');
 
     } else {
-        
+
         // Selects the city and pushes it to an array
 
         var selectCityObj = { city: selectCity };
@@ -47,5 +47,19 @@ var fetchFunction = function (cityname) {
             apiCall(latitude, longitude, cityname)
         })
         .catch(err => alert("404 Not Found"))
-};  
+};
 
+var locationCall = function (lat, lon, cityname) {
+    var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${APIkey}&units=imperial`
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(function (response) {
+            //generates current weather
+            generateCurrent(response, cityname);
+            //generates five day weather
+            getFiveDays(response);
+        });
+};
+
+document.querySelector('#city-search').addEventListener('submit', searchBar)
