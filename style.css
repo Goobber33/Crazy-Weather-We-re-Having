@@ -1,0 +1,8 @@
+h1 {
+    background-image: linear-gradient(to right, #4b2e83, white);
+    color: white;
+}
+
+button {
+    background-color: blue;
+}
