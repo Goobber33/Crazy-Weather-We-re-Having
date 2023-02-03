@@ -2,7 +2,7 @@
 // API Key from openweather
 // Setting the APIkey variable to my api key
 
-var APIkey = '923d9e379d8c5e5c3deb64d1aca43984';
+var APIkey = '7f173635f9674bf1e43758ba1453b8c0';
 var alert = 'alerts,minutely';
 
 // The search bar where the user enters in the city, and 
