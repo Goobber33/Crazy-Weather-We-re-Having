@@ -21,10 +21,10 @@ var searchBar = function (event) {
 
         var selectCityObj = { city: selectCity };
 
-        citiesArray.push(selectCityObj)
-        localStorage.setItem('city', JSON.stringify(citiesArray));
+        arrayOfCities.push(selectCityObj)
+        localStorage.setItem('city', JSON.stringify(arrayOfCities));
 
-        // Passew the city into a future fetch function
+        // Passes the city into a future fetch function
 
         fetchFunction(selectCity)
 
@@ -44,7 +44,7 @@ var fetchFunction = function (cityname) {
         .then(function (response) {
             var latitude = response.coord.lat;
             var longitude = response.coord.lon;
-            apiCall(latitude, longitude, cityname)
+            locationCall(latitude, longitude, cityname)
         })
         .catch(err => alert("404 Not Found"))
 };
