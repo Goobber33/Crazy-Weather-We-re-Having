@@ -1,3 +1,11 @@
 h1 {
     background-image: linear-gradient(to right, #4b2e83, white);
 }
+
+div.card {
+    background-image: linear-gradient(to top, #4b2e83, white)
+}
+
+h3.card-text {
+    color: #85754d;
+}

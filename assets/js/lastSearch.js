@@ -1,6 +1,6 @@
 var buttonVal = function (value) {
     var buttonValue = value.innerHTML;
-    locationCall(buttonValue);
+    fetchFunction(buttonValue);
 };
 
 //function to create a button. Called multiple times in retrieveLocalStorage based on local storage length

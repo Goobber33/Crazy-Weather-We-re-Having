@@ -1,11 +1,8 @@
+var APIkey = '629a3c5d9bb017b7d5d0726e3e74cdbb';
+var part = 'alerts,minutely';
 
-// API Key from openweather
-// Setting the APIkey variable to my api key
 
-var APIkey = 'e7d306eb3b5976488c9d443fcb467e4c';
-var alert = 'alerts,minutely';
-
-// The search bar where the user enters in the city, and 
+// // The search bar where the user enters in the city, and 
 // it will pass the inpout into the fetch function
 
 var searchBar = function (event) {
@@ -20,9 +17,8 @@ var searchBar = function (event) {
         // Selects the city and pushes it to an array
 
         var selectCityObj = { city: selectCity };
-
-        arrayOfCities.push(selectCityObj)
-        localStorage.setItem('city', JSON.stringify(arrayOfCities));
+        citiesArray.push(selectCityObj);
+        localStorage.setItem('city', JSON.stringify(citiesArray));
 
         // Passes the city into a future fetch function
 
@@ -34,22 +30,23 @@ var searchBar = function (event) {
     }
 };
 
-// This is a fetch function that is based off the city name
-
+//fetch function based off city name
 var fetchFunction = function (cityname) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${APIkey}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(function (response) {
-            var latitude = response.coord.lat;
-            var longitude = response.coord.lon;
-            locationCall(latitude, longitude, cityname)
+            var lat = response.coord.lat;
+            var lon = response.coord.lon
+            callLocation(lat, lon, cityname)
         })
+        //if city they enter is not found
         .catch(err => alert("404 Not Found"))
 };
 
-var locationCall = function (lat, lon, cityname) {
+//fetch function based of lat lon and other query parameters. Takes lat lon from locationApiCall()
+var callLocation = function (lat, lon, cityname) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${APIkey}&units=imperial`
 
     fetch(apiUrl)
@@ -62,4 +59,4 @@ var locationCall = function (lat, lon, cityname) {
         });
 };
 
-document.querySelector('#city-search').addEventListener('submit', searchBar)
+document.querySelector('#city-search').addEventListener('submit', searchBar)    
