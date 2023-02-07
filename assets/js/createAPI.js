@@ -17,8 +17,8 @@ var searchBar = function (event) {
         // This variable selects the city, and will push it into an array using JSON.stringify
 
         var selectCityObj = { city: selectCity };
-        citiesArray.push(selectCityObj);
-        localStorage.setItem('city', JSON.stringify(citiesArray));
+        arrayOfCities.push(selectCityObj);
+        localStorage.setItem('city', JSON.stringify(arrayOfCities));
 
         // Putting this function here, will take the city and pass it into a fetch function
 
