@@ -54,10 +54,15 @@ var callLocation = function (lat, lon, cityname) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(function (response) {
-            //generates current weather
+
+            // Will generate the current weather
+
             currentWeather(response, cityname);
-            //generates five day weather
-            getFiveDays(response);
+
+            // This will generate the next 5 day forecast
+
+            fiveDayForecast(response);
+
         });
 };
 

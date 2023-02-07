@@ -1,4 +1,4 @@
-var generateImage = function (WeatherConditions) {
+var imageCards = function (WeatherConditions) {
     var WeatherImage = document.createElement('img');
     if (199 < WeatherConditions && WeatherConditions < 233) {
         WeatherImage.setAttribute('src', 'http://openweathermap.org/img/wn/11d@2x.png')
@@ -16,4 +16,19 @@ var generateImage = function (WeatherConditions) {
         WeatherImage.setAttribute('src', 'http://openweathermap.org/img/wn/02d@2x.png')
     }
     return WeatherImage;
+};
+
+// fiveDayForecast will generate the next five days in the forecast for the city entered
+
+var fiveDayForecast = function (weather) {
+    
+    // This variable will save the array as a variable
+
+    var daily = weather.daily
+
+    // This variable selects the five-day container where the five day forecast will go
+
+    var fiveDay = document.querySelector('#five-day')
+
+
 };
