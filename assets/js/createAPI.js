@@ -14,23 +14,24 @@ var searchBar = function (event) {
 
     } else {
 
-        // Selects the city and pushes it to an array
+        // This variable selects the city, and will push it into an array using JSON.stringify
 
         var selectCityObj = { city: selectCity };
         citiesArray.push(selectCityObj);
         localStorage.setItem('city', JSON.stringify(citiesArray));
 
-        // Passes the city into a future fetch function
+        // Putting this function here, will take the city and pass it into a fetch function
 
         fetchFunction(selectCity)
 
-        //Calls function after every search to save recent search
+        // Saves the search and takes the info from local storage and displays it as a clickable button
 
         saveSearch();
     }
 };
 
-//fetch function based off city name
+// Uses open weather api to fetch city location
+
 var fetchFunction = function (cityname) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${APIkey}`;
 
@@ -41,11 +42,12 @@ var fetchFunction = function (cityname) {
             var lon = response.coord.lon
             callLocation(lat, lon, cityname)
         })
-        //if city they enter is not found
+
         .catch(err => alert("404 Not Found"))
 };
 
-//fetch function based of lat lon and other query parameters. Takes lat lon from locationApiCall()
+// This function will take the lat lon and display current weather using the openweather api
+
 var callLocation = function (lat, lon, cityname) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${APIkey}&units=imperial`
 
