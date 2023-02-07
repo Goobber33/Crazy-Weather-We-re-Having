@@ -14,7 +14,7 @@ var currentWeather = function (weather, cityname) {
 
     var uvEl = document.createElement('li')
     uvEl.textContent = `UV Index: ${uvIndex}` 
-    var currentConditions = document.querySelector('#current-conditions')
+    var currentConditions = document.querySelector('#conditions')
 
     currentConditions.innerHTML = `
     <li> Temperature: ${temperature} \u00B0F  </li>

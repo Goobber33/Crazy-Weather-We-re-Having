@@ -28,7 +28,7 @@ var fiveDayForecast = function (weather) {
 
     // This variable selects the five-day container where the five day forecast will go
 
-    var fiveDay = document.querySelector('#five-day')
+    var fiveDay = document.querySelector('#five-day-forecast')
 
     fiveDay.innerHTML = ''
 
@@ -51,7 +51,7 @@ var fiveDayForecast = function (weather) {
 
         var weatherIcon = imageCards(weather);
 
-        showDay.setAttribute('class', 'card col-auto bg-info m-1 border border-dark');
+        showDay.setAttribute('class', 'card col-auto bg-info m-2 border border-dark');
         dateHeading.setAttribute('class', 'card-text');
         tempElLi.setAttribute('class', 'card-text text-white');
         windLiEl.setAttribute('class', 'card-text text-white');
