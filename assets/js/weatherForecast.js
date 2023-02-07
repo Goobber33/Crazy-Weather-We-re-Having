@@ -37,17 +37,19 @@ var fiveDayForecast = function (weather) {
     for (let i = 0; i < daily.length - 3; i++) {
         //formating for the next five dates
         var dateHead = formatFuture(i);
-        var dailyWeatherConditions = daily[i].weather[0].id;
-        var dailyTemp = daily[i].temp.day;
-        var dailyWind = daily[i].wind_speed;
-        var dailyHummidity = daily[i].humidity;
+        var weather = daily[i].weather[0].id;
+        var temp = daily[i].temp.day;
+        var wind = daily[i].wind_speed;
+        var hummidity = daily[i].humidity;
 
-        var dayDivEl = document.createElement('div');
-        var dateHeadingEl = document.createElement('h3');
+        var showDay = document.createElement('div');
+        var dateHeading = document.createElement('h3');
         var ulEl = document.createElement('ul');
-        var daytempLiEl = document.createElement('li');
-        var daywindLiEl = document.createElement('li');
-        var dayhummidityiEl = document.createElement('li');
+        var tempElLi = document.createElement('li');
+        var windLiEl = document.createElement('li');
+        var hummidityiLi = document.createElement('li');
+
+        var weatherIcon = imageCards(weather);
 
     };
 };
