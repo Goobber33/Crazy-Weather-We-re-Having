@@ -53,7 +53,7 @@ var callLocation = function (lat, lon, cityname) {
         .then(response => response.json())
         .then(function (response) {
             //generates current weather
-            generateCurrent(response, cityname);
+            currentWeather(response, cityname);
             //generates five day weather
             getFiveDays(response);
         });
