@@ -21,7 +21,7 @@ var imageCards = function (WeatherConditions) {
 // fiveDayForecast will generate the next five days in the forecast for the city entered
 
 var fiveDayForecast = function (weather) {
-    
+
     // This variable will save the array as a variable
 
     var daily = weather.daily
@@ -30,5 +30,12 @@ var fiveDayForecast = function (weather) {
 
     var fiveDay = document.querySelector('#five-day')
 
+    fiveDay.innerHTML = ''
 
+    // Creates the div card that containt the weather information
+
+    for (let i = 0; i < daily.length - 3; i++) {
+
+    };
 };
+
