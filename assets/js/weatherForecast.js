@@ -51,6 +51,25 @@ var fiveDayForecast = function (weather) {
 
         var weatherIcon = imageCards(weather);
 
+        showDay.setAttribute('class', 'card col-auto bg-info m-1 border border-dark');
+        dateHeading.setAttribute('class', 'card-text');
+        tempElLi.setAttribute('class', 'card-text text-white');
+        windLiEl.setAttribute('class', 'card-text text-white');
+        hummidityiLi.setAttribute('class', 'card-text text-white');
+        weatherIcon.setAttribute('class', 'card-img-top')
+
+        dateHeading.textContent = dateHead;
+        tempElLi.textContent = `Temperature: ${temp} \u00B0F`;
+        windLiEl.textContent = `Wind: ${wind} MPH`;
+        hummidityiLi.textContent = `Humidity: ${hummidity} %`;
+
+        showDay.appendChild(dateHeading);
+        showDay.appendChild(weatherIcon);
+        showDay.appendChild(ulEl)
+        ulEl.appendChild(tempElLi);
+        ulEl.appendChild(windLiEl);
+        ulEl.appendChild(hummidityiLi);
+        fiveDay.appendChild(showDay);
     };
 };
 
